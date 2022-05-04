@@ -31380,202 +31380,162 @@ function compileToFunction(template, options) {
 var map = {
 	"./API/Index": [
 		"./resources/js/Pages/API/Index.vue",
-		9,
 		"resources_js_Pages_API_Index_vue"
 	],
 	"./API/Index.vue": [
 		"./resources/js/Pages/API/Index.vue",
-		9,
 		"resources_js_Pages_API_Index_vue"
 	],
 	"./API/Partials/ApiTokenManager": [
 		"./resources/js/Pages/API/Partials/ApiTokenManager.vue",
-		9,
 		"resources_js_Pages_API_Partials_ApiTokenManager_vue"
 	],
 	"./API/Partials/ApiTokenManager.vue": [
 		"./resources/js/Pages/API/Partials/ApiTokenManager.vue",
-		9,
 		"resources_js_Pages_API_Partials_ApiTokenManager_vue"
 	],
 	"./Auth/ConfirmPassword": [
 		"./resources/js/Pages/Auth/ConfirmPassword.vue",
-		9,
 		"resources_js_Pages_Auth_ConfirmPassword_vue"
 	],
 	"./Auth/ConfirmPassword.vue": [
 		"./resources/js/Pages/Auth/ConfirmPassword.vue",
-		9,
 		"resources_js_Pages_Auth_ConfirmPassword_vue"
 	],
 	"./Auth/ForgotPassword": [
 		"./resources/js/Pages/Auth/ForgotPassword.vue",
-		9,
 		"resources_js_Pages_Auth_ForgotPassword_vue"
 	],
 	"./Auth/ForgotPassword.vue": [
 		"./resources/js/Pages/Auth/ForgotPassword.vue",
-		9,
 		"resources_js_Pages_Auth_ForgotPassword_vue"
 	],
 	"./Auth/Login": [
 		"./resources/js/Pages/Auth/Login.vue",
-		9,
 		"resources_js_Pages_Auth_Login_vue"
 	],
 	"./Auth/Login.vue": [
 		"./resources/js/Pages/Auth/Login.vue",
-		9,
 		"resources_js_Pages_Auth_Login_vue"
 	],
 	"./Auth/Register": [
 		"./resources/js/Pages/Auth/Register.vue",
-		9,
 		"resources_js_Pages_Auth_Register_vue"
 	],
 	"./Auth/Register.vue": [
 		"./resources/js/Pages/Auth/Register.vue",
-		9,
 		"resources_js_Pages_Auth_Register_vue"
 	],
 	"./Auth/ResetPassword": [
 		"./resources/js/Pages/Auth/ResetPassword.vue",
-		9,
 		"resources_js_Pages_Auth_ResetPassword_vue"
 	],
 	"./Auth/ResetPassword.vue": [
 		"./resources/js/Pages/Auth/ResetPassword.vue",
-		9,
 		"resources_js_Pages_Auth_ResetPassword_vue"
 	],
 	"./Auth/TwoFactorChallenge": [
 		"./resources/js/Pages/Auth/TwoFactorChallenge.vue",
-		9,
 		"resources_js_Pages_Auth_TwoFactorChallenge_vue"
 	],
 	"./Auth/TwoFactorChallenge.vue": [
 		"./resources/js/Pages/Auth/TwoFactorChallenge.vue",
-		9,
 		"resources_js_Pages_Auth_TwoFactorChallenge_vue"
 	],
 	"./Auth/VerifyEmail": [
 		"./resources/js/Pages/Auth/VerifyEmail.vue",
-		9,
 		"resources_js_Pages_Auth_VerifyEmail_vue"
 	],
 	"./Auth/VerifyEmail.vue": [
 		"./resources/js/Pages/Auth/VerifyEmail.vue",
-		9,
 		"resources_js_Pages_Auth_VerifyEmail_vue"
 	],
 	"./Custom/Room": [
 		"./resources/js/Pages/Custom/Room.vue",
-		7,
 		"resources_js_Pages_Custom_Room_vue"
 	],
 	"./Custom/Room.vue": [
 		"./resources/js/Pages/Custom/Room.vue",
-		7,
 		"resources_js_Pages_Custom_Room_vue"
 	],
 	"./Dashboard": [
 		"./resources/js/Pages/Dashboard.vue",
-		9,
 		"resources_js_Pages_Dashboard_vue"
 	],
 	"./Dashboard.vue": [
 		"./resources/js/Pages/Dashboard.vue",
-		9,
 		"resources_js_Pages_Dashboard_vue"
 	],
 	"./PrivacyPolicy": [
 		"./resources/js/Pages/PrivacyPolicy.vue",
-		9,
 		"resources_js_Pages_PrivacyPolicy_vue"
 	],
 	"./PrivacyPolicy.vue": [
 		"./resources/js/Pages/PrivacyPolicy.vue",
-		9,
 		"resources_js_Pages_PrivacyPolicy_vue"
 	],
 	"./Profile/Partials/DeleteUserForm": [
 		"./resources/js/Pages/Profile/Partials/DeleteUserForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_DeleteUserForm_vue"
 	],
 	"./Profile/Partials/DeleteUserForm.vue": [
 		"./resources/js/Pages/Profile/Partials/DeleteUserForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_DeleteUserForm_vue"
 	],
 	"./Profile/Partials/LogoutOtherBrowserSessionsForm": [
 		"./resources/js/Pages/Profile/Partials/LogoutOtherBrowserSessionsForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_LogoutOtherBrowserSessionsForm_vue"
 	],
 	"./Profile/Partials/LogoutOtherBrowserSessionsForm.vue": [
 		"./resources/js/Pages/Profile/Partials/LogoutOtherBrowserSessionsForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_LogoutOtherBrowserSessionsForm_vue"
 	],
 	"./Profile/Partials/TwoFactorAuthenticationForm": [
 		"./resources/js/Pages/Profile/Partials/TwoFactorAuthenticationForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_TwoFactorAuthenticationForm_vue"
 	],
 	"./Profile/Partials/TwoFactorAuthenticationForm.vue": [
 		"./resources/js/Pages/Profile/Partials/TwoFactorAuthenticationForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_TwoFactorAuthenticationForm_vue"
 	],
 	"./Profile/Partials/UpdatePasswordForm": [
 		"./resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_UpdatePasswordForm_vue"
 	],
 	"./Profile/Partials/UpdatePasswordForm.vue": [
 		"./resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_UpdatePasswordForm_vue"
 	],
 	"./Profile/Partials/UpdateProfileInformationForm": [
 		"./resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_UpdateProfileInformationForm_vue"
 	],
 	"./Profile/Partials/UpdateProfileInformationForm.vue": [
 		"./resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue",
-		9,
 		"resources_js_Pages_Profile_Partials_UpdateProfileInformationForm_vue"
 	],
 	"./Profile/Show": [
 		"./resources/js/Pages/Profile/Show.vue",
-		9,
 		"resources_js_Pages_Profile_Show_vue"
 	],
 	"./Profile/Show.vue": [
 		"./resources/js/Pages/Profile/Show.vue",
-		9,
 		"resources_js_Pages_Profile_Show_vue"
 	],
 	"./TermsOfService": [
 		"./resources/js/Pages/TermsOfService.vue",
-		9,
 		"resources_js_Pages_TermsOfService_vue"
 	],
 	"./TermsOfService.vue": [
 		"./resources/js/Pages/TermsOfService.vue",
-		9,
 		"resources_js_Pages_TermsOfService_vue"
 	],
 	"./Welcome": [
 		"./resources/js/Pages/Welcome.vue",
-		9,
 		"resources_js_Pages_Welcome_vue"
 	],
 	"./Welcome.vue": [
 		"./resources/js/Pages/Welcome.vue",
-		9,
 		"resources_js_Pages_Welcome_vue"
 	]
 };
@@ -31589,8 +31549,8 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[2]).then(() => {
-		return __webpack_require__.t(id, ids[1] | 16)
+	return __webpack_require__.e(ids[1]).then(() => {
+		return __webpack_require__(id);
 	});
 }
 webpackAsyncContext.keys = () => (Object.keys(map));
@@ -31694,36 +31654,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/create fake namespace object */
-/******/ 	(() => {
-/******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
-/******/ 		var leafPrototypes;
-/******/ 		// create a fake namespace object
-/******/ 		// mode & 1: value is a module id, require it
-/******/ 		// mode & 2: merge all properties of value into the ns
-/******/ 		// mode & 4: return value when already ns object
-/******/ 		// mode & 16: return value when it's Promise-like
-/******/ 		// mode & 8|1: behave like require
-/******/ 		__webpack_require__.t = function(value, mode) {
-/******/ 			if(mode & 1) value = this(value);
-/******/ 			if(mode & 8) return value;
-/******/ 			if(typeof value === 'object' && value) {
-/******/ 				if((mode & 4) && value.__esModule) return value;
-/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
-/******/ 			}
-/******/ 			var ns = Object.create(null);
-/******/ 			__webpack_require__.r(ns);
-/******/ 			var def = {};
-/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
-/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
-/******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
-/******/ 			}
-/******/ 			def['default'] = () => (value);
-/******/ 			__webpack_require__.d(ns, def);
-/******/ 			return ns;
 /******/ 		};
 /******/ 	})();
 /******/ 	

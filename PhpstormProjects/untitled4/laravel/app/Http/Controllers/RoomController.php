@@ -42,10 +42,7 @@ class RoomController extends Controller
     public function store(Request $request)
     {
 
-//        dd($request);
         $room = new Room();
-//        $room=$room->;
-//        dd($room);
         $room->title=$request->title;
         $room->cards=json_encode($request->cards);
         $room->user_id=1;
@@ -62,7 +59,7 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        return $room;
     }
 
     /**

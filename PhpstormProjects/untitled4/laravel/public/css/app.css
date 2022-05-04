@@ -621,6 +621,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column: span 6 / span 6;
 }.float-right {
   float: right;
+}.float-left {
+  float: left;
 }.mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -633,6 +635,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }.ml-3 {
   margin-left: 0.75rem;
 }.ml-2 {
@@ -739,6 +744,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }.h-14 {
   height: 3.5rem;
+}.h-0 {
+  height: 0px;
 }.min-h-screen {
   min-height: 100vh;
 }.w-auto {
@@ -779,6 +786,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 3.5rem;
 }.w-11\/12 {
   width: 91.666667%;
+}.w-44 {
+  width: 11rem;
 }.min-w-0 {
   min-width: 0px;
 }.max-w-7xl {
@@ -857,6 +866,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   list-style-position: inside;
 }.list-disc {
   list-style-type: disc;
+}.list-none {
+  list-style-type: none;
 }.grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }.grid-cols-1 {
@@ -915,6 +926,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}.divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-divide-opacity));
 }.overflow-hidden {
   overflow: hidden;
 }.overflow-x-auto {
@@ -978,6 +996,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-left-width: 4px;
 }.border-r {
   border-right-width: 1px;
+}.border-t-0 {
+  border-top-width: 0px;
 }.border-solid {
   border-style: solid;
 }.border-none {
@@ -1026,6 +1046,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.border-green-500 {
   --tw-border-opacity: 1;
   border-color: rgb(14 159 110 / var(--tw-border-opacity));
+}.border-slate-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 41 59 / var(--tw-border-opacity));
 }.bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1117,6 +1140,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.bg-red-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(253 242 242 / var(--tw-bg-opacity));
+}.bg-slate-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }.bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }.bg-opacity-50 {
@@ -1244,6 +1270,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: center;
 }.text-right {
   text-align: right;
+}.align-middle {
+  vertical-align: middle;
 }.align-bottom {
   vertical-align: bottom;
 }.font-sans {
@@ -1281,6 +1309,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 400;
 }.uppercase {
   text-transform: uppercase;
+}.capitalize {
+  text-transform: capitalize;
 }.leading-tight {
   line-height: 1.25;
 }.leading-4 {
@@ -1413,6 +1443,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-purple-500 {
   --tw-text-opacity: 1;
   color: rgb(144 97 249 / var(--tw-text-opacity));
+}.text-slate-700 {
+  --tw-text-opacity: 1;
+  color: rgb(51 65 85 / var(--tw-text-opacity));
 }.underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -1776,6 +1809,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }.disabled\:opacity-25:disabled {
   opacity: 0.25;
+}.dark .dark\:divide-gray-600 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-divide-opacity));
 }.dark .dark\:border-gray-700 {
   --tw-border-opacity: 1;
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
@@ -2005,6 +2041,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 100%;
   }.sm\:w-auto {
     width: auto;
+  }.sm\:w-6\/12 {
+    width: 50%;
   }.sm\:max-w-2xl {
     max-width: 42rem;
   }.sm\:max-w-md {
@@ -2108,6 +2146,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: auto;
   }.md\:w-2\/3 {
     width: 66.666667%;
+  }.md\:w-4\/12 {
+    width: 33.333333%;
   }.md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }.md\:grid-cols-2 {

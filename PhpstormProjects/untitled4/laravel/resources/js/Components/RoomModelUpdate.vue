@@ -42,29 +42,25 @@ import {Inertia} from "@inertiajs/inertia";
 export default {
     name: "RoomModelUpdate",
     props:{
-        room: null
-    },
-    setup () {
-        const form = reactive({
-            title: room.title,
-            cards: room.cards,
-        })
-
-        function submit() {
-            Inertia.post('/room', form)
-        }
-
-        return { form, submit }
+        room: null,
+        id : null
     },
     data() {
         return {
-            showModal: false
+            showModal: false,
+            form: this.$inertia.form({
+                title: this.room.title,
+                cards: this.room.cards,
+            }),
         }
     },
     methods: {
         toggleModal: function(){
             this.showModal = !this.showModal;
-        }
+        },
+        submit() {
+            Inertia.put('/room/' + this.id, this.form)
+        },
     }
 }
 </script>

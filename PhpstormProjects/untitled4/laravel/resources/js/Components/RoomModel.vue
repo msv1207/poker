@@ -23,11 +23,50 @@
                                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your title</label>
                                 <input v-model="form.title" type="title" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" >
                             </div>
-                            <div class="mb-6">
-                                <label for="cards" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your cards</label>
-                                <input v-model="form.cards" type="cards" id="cards" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
+                            <div class="flex flex-wrap">
+                                <div class="w-full sm:w-6/12 md:w-4/12 px-4">
+                                    <div>
+                                        <p class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900" v-on:click="toggleDropdown()" ref="btnDropdownRef">
+                                            White Dropdown
+                                        </p>
+                                        <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}">
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="useAllCards" value="useAllCards" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">use all cards</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="cards" value="0" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">0</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="1/2" value="1/2" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">½</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">Circle checkbox</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">Circle checkbox</span>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">Create</button>
+
                         </form>
                     </div>
                 </div>
@@ -41,12 +80,15 @@
 
 import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
+import RoomDropDown from "./RoomDropDown";
+import {createPopper} from "@popperjs/core";
 export default {
     name: "roomModel",
+    components: {RoomDropDown},
     setup () {
         const form = reactive({
             title: null,
-            cards: null,
+            cards: [],
         })
 
         function submit() {
@@ -57,12 +99,23 @@ export default {
     },
     data() {
         return {
-            showModal: false
+            showModal: false,
+            dropdownPopoverShow: false,
         }
     },
     methods: {
         toggleModal: function(){
             this.showModal = !this.showModal;
+        },
+        toggleDropdown: function(){
+            if(this.dropdownPopoverShow){
+                this.dropdownPopoverShow = false;
+            } else {
+                this.dropdownPopoverShow = true;
+                createPopper(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
+                    placement: "bottom-start"
+                });
+            }
         }
     }
 }
