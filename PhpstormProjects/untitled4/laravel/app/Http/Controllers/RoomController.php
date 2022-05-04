@@ -17,8 +17,10 @@ class RoomController extends Controller
     public function index()
     {
         $rooms=Room::all();
-        return Inertia::render('Room');
-//        return response($rooms);
+        return Inertia::render('Custom/Room', [
+            'rooms' => $rooms,
+        ]);
+        return response($rooms);
     }
 
     /**
@@ -45,7 +47,7 @@ class RoomController extends Controller
 //        $room=$room->;
 //        dd($room);
         $room->title=$request->title;
-        $room->cards=$request->cards;
+        $room->cards=json_encode($request->cards);
         $room->user_id=1;
         $room->save();
 

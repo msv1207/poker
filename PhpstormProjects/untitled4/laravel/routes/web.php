@@ -25,6 +25,8 @@ Route::get('/', function () {
     ]);
 });
 
+Route::inertia('/about', 'Custom/Room');
+
 Route::resource('room', \App\Http\Controllers\RoomController::class);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
