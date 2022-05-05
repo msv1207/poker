@@ -32,7 +32,7 @@
                                         <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}">
                                             <div>
                                                 <label class="inline-flex items-center">
-                                                    <input type="checkbox" id="useAllCards" value="useAllCards" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <input type="checkbox" id="useAllCards"  @click="allSelect" class="w-6 h-6 rounded-full"  />
                                                     <span class="ml-2">use all cards</span>
                                                 </label>
                                             </div>
@@ -50,23 +50,33 @@
                                             </div>
                                             <div>
                                                 <label class="inline-flex items-center">
-                                                    <input type="checkbox" class="w-6 h-6 rounded-full"  />
-                                                    <span class="ml-2">Circle checkbox</span>
+                                                    <input type="checkbox" id="1" value="1" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">1</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label class="inline-flex items-center">
-                                                    <input type="checkbox" class="w-6 h-6 rounded-full"  />
-                                                    <span class="ml-2">Circle checkbox</span>
+                                                    <input type="checkbox" id="2" value="2" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">2</span>
                                                 </label>
                                             </div>
-
-                                        </div>
-                                    </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="3" value="3" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">3</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="4" value="4" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">4</span>
+                                                </label>
+                                            </div>
                                 </div>
                             </div>
                             <button type="submit" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">Create</button>
-
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -116,6 +126,16 @@ export default {
                     placement: "bottom-start"
                 });
             }
+        },
+        allSelect:function() {
+            // if(this.form.cards===["0", "1", '1/2', "2", "3", "4"]) {
+            //     this.form.cards = []
+            // }
+            // else {
+                this.form.cards = ["0", "1", '1/2', "2", "3", "4"]
+            // }
+            // return this.form.cards
+
         }
     }
 }

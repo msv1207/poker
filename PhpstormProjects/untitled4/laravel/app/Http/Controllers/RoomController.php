@@ -20,7 +20,7 @@ class RoomController extends Controller
         return Inertia::render('Custom/Room', [
             'rooms' => $rooms,
         ]);
-        return response($rooms);
+//        return response($rooms);
     }
 
     /**
@@ -59,7 +59,10 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        return $room;
+        $room->cards=json_decode( $room->cards);
+        return Inertia::render('Custom/RoomSingle', [
+            'room' => $room,
+        ]);
     }
 
     /**

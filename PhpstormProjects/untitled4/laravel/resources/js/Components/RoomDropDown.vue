@@ -8,7 +8,7 @@
                 <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}">
                     <div>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" id="useAllCards" value="useAllCards" v-model="cards" class="w-6 h-6 rounded-full"  />
+                            <input type="checkbox" id="useAllCards"  v-model="allSelect" class="w-6 h-6 rounded-full"  />
                             <span class="ml-2">use all cards</span>
                         </label>
                     </div>
@@ -25,16 +25,28 @@
                 </label>
                         </div>
                     <div>
-                     <label class="inline-flex items-center">
-                     <input type="checkbox" class="w-6 h-6 rounded-full"  />
-                 <span class="ml-2">Circle checkbox</span>
-             </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" id="1" value="1" v-model="cards" class="w-6 h-6 rounded-full"  />
+                            <span class="ml-2">1</span>
+                        </label>
                     </div>
                     <div>
                         <label class="inline-flex items-center">
-                    <input type="checkbox" class="w-6 h-6 rounded-full"  />
-                 <span class="ml-2">Circle checkbox</span>
-                    </label>
+                            <input type="checkbox" id="2" value="2" v-model="cards" class="w-6 h-6 rounded-full"  />
+                            <span class="ml-2">2</span>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" id="3" value="3" v-model="cards" class="w-6 h-6 rounded-full"  />
+                            <span class="ml-2">3</span>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" id="4" value="4" v-model="cards" class="w-6 h-6 rounded-full"  />
+                            <span class="ml-2">4</span>
+                        </label>
                     </div>
                     <span>Checked names: {{ cards }}</span>
 
@@ -69,6 +81,10 @@ export default {
                     placement: "bottom-start"
                 });
             }
+        },
+        allSelect:function() {
+            this.cards=["0", "2", "3", "4"]
+
         }
     }
 }

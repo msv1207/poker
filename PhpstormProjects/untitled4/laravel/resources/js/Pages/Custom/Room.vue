@@ -62,9 +62,9 @@ export default {
         rooms: null
     },
     methods:{
-        redirectUrl(){
-            this.router.push('/home')
-        }
+        // redirectUrl(){
+        //     this.router.push('/home')
+        // }
     }
 }
 
