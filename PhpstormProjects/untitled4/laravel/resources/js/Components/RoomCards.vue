@@ -25,7 +25,7 @@
 export default {
     name: "RoomCards",
     props:{
-        card:null
+        card:null,
     }
 }
 </script>

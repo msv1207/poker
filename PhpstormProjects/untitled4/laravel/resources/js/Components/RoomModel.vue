@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <button class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900" type="button" v-on:click="toggleModal()">
+        <button class="float-right h-8 px-4 m-2 text-sm text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900" type="button" v-on:click="toggleModal()">
             Create Room
         </button>
 
@@ -22,12 +22,12 @@
                             <div class="mb-6">
                                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your title</label>
                                 <input v-model="form.title" type="title" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" >
-                            </div>
+                            </div >
                             <div class="flex flex-wrap">
-                                <div class="w-full sm:w-6/12 md:w-4/12 px-4">
-                                    <div>
-                                        <p class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900" v-on:click="toggleDropdown()" ref="btnDropdownRef">
-                                            White Dropdown
+                                <div class="w-full ">
+                                    <div class="relative">
+                                        <p class="text-purple-700 sm:w-full hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900" v-on:click="toggleDropdown()" ref="btnDropdownRef">
+                                            Chose cards
                                         </p>
                                         <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}">
                                             <div>
@@ -68,13 +68,62 @@
                                             </div>
                                             <div>
                                                 <label class="inline-flex items-center">
-                                                    <input type="checkbox" id="4" value="4" v-model="form.cards" class="w-6 h-6 rounded-full"  />
-                                                    <span class="ml-2">4</span>
+                                                    <input type="checkbox" id="5" value="5" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">5</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="8" value="8" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">8</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="13" value="13" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">13</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="21" value="21" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">5</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="34" value="34" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">34</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="55" value="55" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">55</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="89" value="89" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">89</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="?" value="?" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">?</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label class="inline-flex items-center">
+                                                    <input type="checkbox" id="C" value="C" v-model="form.cards" class="w-6 h-6 rounded-full"  />
+                                                    <span class="ml-2">C</span>
                                                 </label>
                                             </div>
                                 </div>
-                            </div>
-                            <button type="submit" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">Create</button>
+                                        <button type="submit" class="  right-0  text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Create</button>
+
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -128,13 +177,12 @@ export default {
             }
         },
         allSelect:function() {
-            // if(this.form.cards===["0", "1", '1/2', "2", "3", "4"]) {
-            //     this.form.cards = []
-            // }
-            // else {
-                this.form.cards = ["0", "1", '1/2', "2", "3", "4"]
-            // }
-            // return this.form.cards
+            if(this.form.cards.length>1) {
+                this.form.cards = []
+            }
+            else {
+                this.form.cards = ["0", "1", '1/2', "2", "3", "5", "8", "13", "21", "34", "55", "89", "?", "C"]
+            }
 
         }
     }
