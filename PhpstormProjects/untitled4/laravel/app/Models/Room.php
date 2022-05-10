@@ -17,8 +17,8 @@ class Room extends Model
     {
         return $this->hasMany(User::class);
     }
-    public function lots()
+    public function story()
     {
-        return $this->hasMany(Lot::class);
+        return $this->hasMany(Story::class);
     }
 }

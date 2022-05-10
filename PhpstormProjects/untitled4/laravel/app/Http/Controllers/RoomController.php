@@ -59,6 +59,8 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
+        $room=($room->with('story')->get());
+        $room=($room[0]);
         $room->cards=json_decode( $room->cards);
         return Inertia::render('Custom/RoomSingle', [
             'room' => $room,

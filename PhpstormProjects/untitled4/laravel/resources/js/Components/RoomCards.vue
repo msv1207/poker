@@ -1,6 +1,8 @@
 <template>
-    <button>
-    <div  class=" rounded-md w-32 relative h-40  shadow-sm shadow-indigo-500/40 hover:shadow-lg  ">
+    <button @click="choose(card)">
+        {{
+            choosed
+        }}    <div  class=" rounded-md w-32 relative h-40  shadow-sm shadow-indigo-500/40 hover:shadow-lg  ">
         <div class="absolute left-1 top-0">
             {{ card }}
         </div>
@@ -26,6 +28,21 @@ export default {
     name: "RoomCards",
     props:{
         card:null,
+    },
+    data() {
+        return {
+            choosed: ''
+        }
+    },
+    methods:{
+        choose(card){
+            if (this.choosed ==='')
+            this.choosed=card
+            else
+            {
+                this.choosed =''
+            }
+        }
     }
 }
 </script>

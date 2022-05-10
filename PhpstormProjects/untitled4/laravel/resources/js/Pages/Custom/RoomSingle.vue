@@ -1,13 +1,13 @@
 <template>
-    <navbar/>
+    <navbar />
     <div class="px-20 py-10">
-
     <StoryModel :id="room.id"/>
-        <h1 class="text-2xl">Story</h1>
+        <h1 class="text-2xl">Story:             {{room.story[0].title}} </h1>
         <div class="p-6 py-5">
-    <span  v-for="card in room.cards ">
+
+            <span  v-for="card in room.cards ">
 <!--    <div v-for="card in room.cards ">-->
-        <room-cards  :card="card"/>
+           <room-cards  :card="card"/>
        <span> &nbsp;</span>
 <!--    </div>-->
         </span>
