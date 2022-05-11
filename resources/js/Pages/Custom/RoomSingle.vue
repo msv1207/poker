@@ -11,6 +11,9 @@
        <span> &nbsp;</span>
 <!--    </div>-->
         </span>
+<!--            <div v-if="$page.props.flash.message" class="alert">-->
+<!--                {{ $page.props.flash.message }}-->
+<!--            </div>-->
 
             </div>
     </div>
@@ -26,7 +29,8 @@ export default {
     props:{
         room : Object
     },
-    components: {StoryModel, LotModel, Navbar, RoomCards}
+    components: {StoryModel, LotModel, Navbar, RoomCards},
+
 }
 </script>
 

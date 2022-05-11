@@ -8,7 +8,7 @@
                  <logo/>
             </a>
             <a class="text-white" style="float: right;">
-                <p class="font-mono" >Name Surname</p>
+<!--                <p class="font-mono" >{{ // user.name }}</p>-->
             </a>
             <!--            </div>-->
         </div>
@@ -17,8 +17,14 @@
 
 <script>
 import Logo from "@/Components/Logo";
+import { computed } from 'vue'
+import { usePage } from '@inertiajs/inertia-vue3'
 export default {
     name: "Navbar",
+    setup() {
+        // const user = computed(() => usePage().props.value.auth.user)
+        // return { user }
+    },
     components: {Logo}
 }
 </script>

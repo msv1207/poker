@@ -28,9 +28,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Components_Logo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/Logo */ "./resources/js/Components/Logo.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Navbar",
+  setup: function setup() {// const user = computed(() => usePage().props.value.auth.user)
+    // return { user }
+  },
   components: {
     Logo: _Components_Logo__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -217,9 +224,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   style: {
     "float": "right"
   }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "font-mono"
-}, "Name Surname")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <p class=\"font-mono\" >{{ // user.name }}</p>")], -1
 /* HOISTED */
 );
 
@@ -414,7 +419,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["card"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    </div>")]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))])])], 64
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <div v-if=\"$page.props.flash.message\" class=\"alert\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                {{ $page.props.flash.message }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </div>")])])], 64
   /* STABLE_FRAGMENT */
   );
 }

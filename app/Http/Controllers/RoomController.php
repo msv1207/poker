@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Traits\AddsToast;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
+    use AddsToast;
     /**
      * Display a listing of the resource.
      *
@@ -43,12 +45,15 @@ class RoomController extends Controller
     {
 
         $room = new Room();
+//        $this->addToast('Updated', 'Delicious champagne has been updated', 'success', false);
         $room->title=$request->title;
         $room->cards=json_encode($request->cards);
         $room->user_id=1;
         $room->save();
 
-
+      return redirect()->back()->with('flash', [
+          'message' => 'success',
+      ]);
     }
 
     /**
