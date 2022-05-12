@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Models\Story;
 use Illuminate\Http\Request;
 
@@ -52,9 +53,10 @@ class StoryController extends Controller
      * @param  \App\Models\Story  $story
      * @return \Illuminate\Http\Response
      */
-    public function show(Story $story)
+    public function show( Room $room, Story $story)
     {
-        //
+//        if ($room->id==$story->room_id)
+        dd ($room, $story);
     }
 
     /**

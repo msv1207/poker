@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@heroicons/vue": "^1.0.6",
         "@inertiajs/inertia": "^0.11.0",
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/progress": "^0.2.7",
@@ -32,6 +33,7 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "@headlessui/vue": "^1.6.1",
         "daisyui": "^2.14.3",
         "flowbite": "^1.4.4",
         "webpack-node-externals": "^3.0.0"
