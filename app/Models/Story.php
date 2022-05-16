@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Story extends Model
 {
+//    protected $fillable=['title', 'user_id', 'story_id'];
     use HasFactory;
 
     public function users()
@@ -17,5 +18,10 @@ class Story extends Model
     public function room()
     {
         return $this->belongsTo(Room::class);
+    }
+
+    public function choose()
+    {
+        return $this->hasMany(Choose::class);
     }
 }

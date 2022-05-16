@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
+use App\Models\Story;
 use App\Models\Choose;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChooseController extends Controller
 {
@@ -14,7 +17,12 @@ class ChooseController extends Controller
      */
     public function index()
     {
-        //
+        $room= Room::find(1);
+        return ($room->story()->where('title', 'like', '%bomb%')->with('choose')->get());
+//            ::with(['story'=>function ($query){
+//            $query->where('title', 'like', '%bomb%');
+//        }], ['choose'])->get());
+
     }
 
     /**
@@ -35,7 +43,13 @@ class ChooseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $choose= New Choose();
+        $choose->title=$request->choose;
+        $choose->user_id=Auth::id();
+        $choose->story_id=$request->story_id;
+        $choose->save();
+        return redirect()->back();
+
     }
 
     /**

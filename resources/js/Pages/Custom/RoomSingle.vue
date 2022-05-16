@@ -8,6 +8,7 @@
         <div class="  float-right  w-64 relative overflow-x-auto shadow-md sm:rounded-lg">
             <vote-form :selected="selected" :cards="room.cards"/>
 <br>
+            <a type="button" href="/choose" class=" text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800"> finish vote</a>
             <button class="  text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800" @click="nextStory"> vote</button>
         </div>
         <div class=" p-6 py-5">
@@ -40,13 +41,13 @@ export default {
     data() {
         return {
             id:0,
-            selected: null
+            selected: 'your vote'
         }
     },
     components: {VoteForm, StoryModel, LotModel, Navbar, RoomCards},
     methods:{
         nextStory(){
-            Inertia.post('/', selected)
+            Inertia.post('/choose', { choose: this.selected, story_id: this.story[this.id].id })
             this.id++;
         },
         test(card){

@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::inertia('/about', 'Custom/Room');
 
 Route::resource('room/{room}/story', \App\Http\Controllers\StoryController::class);
-
+Route::resource('choose', \App\Http\Controllers\ChooseController::class);
 Route::resource('room', \App\Http\Controllers\RoomController::class);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
