@@ -19,7 +19,7 @@ class User extends Authenticatable
 
     public function room()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Room::class);
     }
     /**
      * The attributes that are mass assignable.

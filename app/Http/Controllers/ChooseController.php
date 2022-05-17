@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use Inertia\Inertia;
 use App\Models\Story;
 use App\Models\Choose;
 use Illuminate\Http\Request;
@@ -17,8 +18,23 @@ class ChooseController extends Controller
      */
     public function index()
     {
-        $room= Room::find(1);
-        return ($room->story()->where('title', 'like', '%bomb%')->with('choose')->get());
+        $room= Room::with("story.choose.users")->get();
+        dd($room->find(1)->story->
+            find(1)->choose);
+//        foreach ($room->find(1)->story->d as $value)
+//        {
+//           dump( $value);
+//        }
+//        ;
+//        ('choose')->get();
+//        foreach ($room[0]->choose as $value) {
+//            dump($value);
+//          var_dump(  array_count_values($room[0]->choose->toArray()));
+//            if ($value->title==)
+//        }
+        return Inertia::render('Custom/Result', [
+          'room' => $room[0],
+        ]);
 //            ::with(['story'=>function ($query){
 //            $query->where('title', 'like', '%bomb%');
 //        }], ['choose'])->get());
