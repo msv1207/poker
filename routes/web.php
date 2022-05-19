@@ -33,7 +33,7 @@ Route::resource('room', \App\Http\Controllers\RoomController::class);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
-Route::get('send-email', [App\Http\Controllers\EmailController::class, 'sendEmail']);
+Route::post('send-email', [App\Http\Controllers\EmailController::class, 'sendEmail']);
 
 //Route::middleware([
 //    'auth:sanctum',

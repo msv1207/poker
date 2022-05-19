@@ -19,21 +19,25 @@ class ChooseController extends Controller
     public function index()
     {
         $room= Room::with("story.choose.users")->get();
-        dd($room->find(1)->story->
-            find(1)->choose);
-//        foreach ($room->find(1)->story->d as $value)
-//        {
-//           dump( $value);
-//        }
-//        ;
-//        ('choose')->get();
-//        foreach ($room[0]->choose as $value) {
-//            dump($value);
-//          var_dump(  array_count_values($room[0]->choose->toArray()));
-//            if ($value->title==)
-//        }
+        $room=$room
+            ->find(1)->story->find(1);
+        $room->choose->groupBy('title')->flatMap(function ($items) {
+
+            $quantity = sizeof($items);
+
+            return $items->map(function ($item) use ($quantity) {
+                $item->quantity = $quantity;
+
+                return $item;
+
+            });
+
+        });
+        $room->choose=$room->choose->unique('title');
+//        dump( $room->choose);
+//        return Inertia::share('choose',  $room->choose);
         return Inertia::render('Custom/Result', [
-          'room' => $room[0],
+          'room' => $room->choose,
         ]);
 //            ::with(['story'=>function ($query){
 //            $query->where('title', 'like', '%bomb%');

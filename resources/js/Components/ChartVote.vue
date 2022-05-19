@@ -1,28 +1,22 @@
 <template>
-    <div v-for="vote in room">
-    {{vote.title}}
-        {{vote.quantity}}
+    <div class="w-1/3	h-56	">
+
+        <Bar
+            :chart-options="chartOptions"
+            :chart-data="chartData"
+            :chart-id="chartId"
+            :dataset-id-key="datasetIdKey"
+            :plugins="plugins"
+            :css-classes="cssClasses"
+            :styles="styles"
+            :width="width"
+            :height="height"
+        />
 
     </div>
-  <div class="w-1/3	h-56	">
-
-      <Bar
-          :chart-options="chartOptions"
-          :chart-data="chartData"
-          :chart-id="chartId"
-          :dataset-id-key="datasetIdKey"
-          :plugins="plugins"
-          :css-classes="cssClasses"
-          :styles="styles"
-          :width="width"
-          :height="height"
-      />
-
-  </div>
 </template>
 
 <script>
-
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 

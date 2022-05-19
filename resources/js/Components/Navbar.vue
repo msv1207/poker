@@ -7,8 +7,7 @@
                  <logo/>
             </a>
             <a class="text-white" style="float: right;">
-<!--                <p class="font-mono" >{{ this.props.auth}}</p>-->
-            </a>
+                {{  }}            </a>
         </div>
     </nav>
 </template>
