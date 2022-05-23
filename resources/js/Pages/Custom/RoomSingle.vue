@@ -21,7 +21,7 @@
            <room-cards @card="test($event)" :card="card"/>
        <span> &nbsp;</span>
         </span>
-
+<notification-box/>
             <div v-if="$page.props.flash.message" class="alert">
                 {{ $page.props.flash.message }}
             </div>
@@ -37,6 +37,7 @@ import LotModel from "@/Components/StoryModel";
 import StoryModel from "@/Components/StoryModel";
 import VoteForm from "@/Components/VoteForm";
 import {Inertia} from "@inertiajs/inertia";
+import NotificationBox from "@/Components/NotificationBox";
 export default {
     name: "RoomSingle",
     props:{
@@ -51,7 +52,7 @@ export default {
             email:null
         }
     },
-    components: {VoteForm, StoryModel, LotModel, Navbar, RoomCards},
+    components: {NotificationBox, VoteForm, StoryModel, LotModel, Navbar, RoomCards},
     methods:{
         nextStory(){
             Inertia.post('/choose', { choose: this.selected, story_id: this.story[this.id].id })

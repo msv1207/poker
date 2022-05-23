@@ -47,4 +47,18 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    public function render($request, Throwable $e)
+ {
+     $response = parent::render($request, $e);
+
+     if($response->status() == 403) {
+         return redirect()->back()->with('notification', [
+             'color' => 'red',
+             'title' => 'Error',
+             'message'=> $e->getMessage(),
+        ]);
+    }
+
+    return $response;
+}
 }

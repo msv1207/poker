@@ -7,7 +7,9 @@
                  <logo/>
             </a>
             <a class="text-white" style="float: right;">
-                {{  }}            </a>
+                {{  $page.props.auth.user.name }}
+            </a>
+
         </div>
     </nav>
 </template>

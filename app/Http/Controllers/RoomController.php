@@ -7,6 +7,7 @@ use App\Models\User;
 use Inertia\Inertia;
 use App\Traits\AddsToast;
 use Illuminate\Http\Request;
+use Usernotnull\Toast\Toast;
 
 class RoomController extends Controller
 {
@@ -19,6 +20,7 @@ class RoomController extends Controller
     public function index()
     {
         $rooms=Room::all();
+
         return Inertia::render('Custom/Room', [
             'rooms' => $rooms,
         ]);
@@ -50,10 +52,8 @@ class RoomController extends Controller
         $room->cards=json_encode($request->cards);
         $room->user_id=1;
         $room->save();
-
-      return redirect()->back()->with('flash', [
-          'message' => 'success',
-      ]);
+        return redirect()->back()->with(
+          'message' , 'success');
     }
 
     /**
