@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Story;
 use App\Models\Choose;
 use Illuminate\Http\Request;
+use App\Services\VoteCounter;
 use Illuminate\Support\Facades\Auth;
 
 class ChooseController extends Controller
@@ -16,32 +17,16 @@ class ChooseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Room $room, Story $story)
     {
-        $room= Room::with("story.choose.users")->get();
-        $room=$room
-            ->find(1)->story->find(1);
-        $room->choose->groupBy('title')->flatMap(function ($items) {
 
-            $quantity = sizeof($items);
-
-            return $items->map(function ($item) use ($quantity) {
-                $item->quantity = $quantity;
-
-                return $item;
-
-            });
-
-        });
-        $room->choose=$room->choose->unique('title');
-//        dump( $room->choose);
-//        return Inertia::share('choose',  $room->choose);
-        return Inertia::render('Custom/Result', [
-          'room' => $room->choose,
-        ]);
-//            ::with(['story'=>function ($query){
-//            $query->where('title', 'like', '%bomb%');
-//        }], ['choose'])->get());
+        $rooms= Room::with("story.choose.users")->get();
+        $rooms=$rooms
+            ->find($room)->story->find($story);
+        $rooms=VoteCounter::index($rooms);
+        return  [
+          'rooms' => $rooms->choose,
+        ];
 
     }
 
@@ -61,8 +46,9 @@ class ChooseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Room $room, Story $story, Request $request)
     {
+//dd($request);
         $choose= New Choose();
         $choose->title=$request->choose;
         $choose->user_id=Auth::id();

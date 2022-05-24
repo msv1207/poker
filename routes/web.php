@@ -21,14 +21,13 @@ Route::get('/', function () {
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
     ]);
 });
 
 Route::inertia('/about', 'Custom/Room');
 
 Route::resource('room/{room}/story', \App\Http\Controllers\StoryController::class);
-Route::resource('choose', \App\Http\Controllers\ChooseController::class);
+Route::resource('room/{room}/story/{story}/choose', \App\Http\Controllers\ChooseController::class);
 Route::resource('room', \App\Http\Controllers\RoomController::class);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

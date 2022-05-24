@@ -56,7 +56,7 @@
         </table>
     </div>
     </div>
-   <notification-box/>
+<!--   <notification-box/>-->
 </template>
 <script>
 
@@ -66,9 +66,9 @@ import RoomModel from "../../Components/RoomModel";
 import RoomModelUpdate from "../../Components/RoomModelUpdate";
 import RoomModelDelete from "../../Components/RoomModelDelete";
 import Navbar from "@/Components/Navbar";
-import NotificationBox from "@/Components/NotificationBox";
+// import NotificationBox from "@/Components/NotificationBox";
 export default {
-    components: {Navbar, RoomModelDelete, RoomModelUpdate, RoomModel, NotificationBox},
+    components: {Navbar, RoomModelDelete, RoomModelUpdate, RoomModel},
     props:{
         error: null,
         rooms: null

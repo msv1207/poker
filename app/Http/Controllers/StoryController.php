@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use Inertia\Inertia;
 use App\Models\Story;
 use Illuminate\Http\Request;
 
@@ -36,15 +37,16 @@ class StoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Room $room, Request $request)
     {
         $story = new Story();
 //        $story=$story->;
 //        dd($story);
         $story->title=$request->title;
-        $story->room_id=$request->id;
+        $story->room_id=$room->id;
         $story->user_id=1;
         $story->save();
+
     }
 
     /**
@@ -53,9 +55,10 @@ class StoryController extends Controller
      * @param  \App\Models\Story  $story
      * @return \Illuminate\Http\Response
      */
-    public function show( Room $room, Story $story)
+    public function show(Room $room, Story $story)
     {
 //        if ($room->id==$story->room_id)
+        return Inertia::render('testd', "cfccfcf");
         dd ($room, $story);
     }
 

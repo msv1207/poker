@@ -55,11 +55,18 @@ export default {
             // selected: this.selected
         }
     },
+    watch(){
+    },
 
     methods :{
         changed(card){
             console.log(card)
-            // this.$emit.selected = card;
+            this.selected = card;
+            // this.$emit.selected=card;
+            // this.$set(this.selected, null, card)
+            // console.log(this.selected)
+            this.$emit('name', card);
+
             // return(this.$emit.selected)
 
 

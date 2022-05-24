@@ -1,6 +1,8 @@
 <template>
     <button @click="choose(card)">
-           <div  class=" rounded-md w-32 relative h-40  shadow-sm shadow-indigo-500/40 hover:shadow-lg  ">
+        <div  class="  w-36  h-40   ">
+
+           <div  class="  rounded-md w-32 relative h-40  shadow-sm shadow-indigo-500/40 hover:shadow-lg  ">
         <div class="absolute left-1 top-0">
             {{ card }}
         </div>
@@ -18,6 +20,7 @@
         </p>
         </div>
     </div>
+        </div>
     </button>
 </template>
 
