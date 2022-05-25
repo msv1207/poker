@@ -19,7 +19,8 @@
         "symfony/mailgun-mailer": "^6.0",
         "symfony/postmark-mailer": "^6.0",
         "tightenco/ziggy": "^1.4",
-        "usernotnull/tall-toasts": "^1.5"
+        "usernotnull/tall-toasts": "^1.5",
+        "vinkla/hashids": "^10.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

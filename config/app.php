@@ -159,6 +159,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+
         Laravel\Socialite\SocialiteServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -186,6 +187,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Vinkla\Hashids\HashidsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -199,7 +201,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
 
     ],
-
+    'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
     /*
     |--------------------------------------------------------------------------
     | Class Aliases

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Hashids;
 use App\Models\Room;
 use App\Models\User;
 use Inertia\Inertia;
@@ -64,6 +65,10 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
+//        $id = Hashids::connection($room)->decode($routeKey)[0] ?? null;
+//        $modelInstance = resolve($room);
+//
+//        return  $modelInstance->findOrFail($id);
 //        $room=($room->with('story')->get());
 //        $room=($room[0]);
 //        dd($room->story()->getResults()[0]->title);

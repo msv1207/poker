@@ -26,6 +26,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        parent::boot();
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
@@ -36,6 +38,9 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+//        Route::bind('room', function ($value, $route) {
+//            return $this->getModel(\App\Models\Room::class, $value);
+//        });
     }
 
     /**
