@@ -30,10 +30,12 @@
             </transition>
         </div>
     </Listbox>
+
 </template>
 
 <script >
 import { ref } from 'vue'
+import VueCountdown from '@chenfengyuan/vue-countdown';
 import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
 export default {
@@ -44,7 +46,8 @@ export default {
        ListboxOption,
        ListboxOptions,
        CheckIcon,
-       SelectorIcon
+       SelectorIcon,
+       VueCountdown
    },
    props:{
        cards:null,
@@ -52,6 +55,7 @@ export default {
    },
     data() {
         return {
+            counting: false,
             // selected: this.selected
         }
     },
@@ -70,7 +74,13 @@ export default {
             // return(this.$emit.selected)
 
 
-        }
+        },
+        startCountdown: function () {
+            this.counting = true;
+        },
+        onCountdownEnd: function () {
+            this.counting = false;
+        },
 
     }
 }

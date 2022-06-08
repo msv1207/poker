@@ -6,6 +6,7 @@ use App\Models\Room;
 use Inertia\Inertia;
 use App\Models\Story;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StoryController extends Controller
 {
@@ -44,7 +45,7 @@ class StoryController extends Controller
 //        dd($story);
         $story->title=$request->title;
         $story->room_id=$room->id;
-        $story->user_id=1;
+        $story->user_id=Auth::id();
         $story->save();
 
     }
@@ -93,7 +94,7 @@ class StoryController extends Controller
      * @param  \App\Models\Story  $story
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Story $story)
+    public function destroy(Room $room, Story $story)
     {
         $story->delete();
     }

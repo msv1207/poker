@@ -66,9 +66,17 @@ import RoomModel from "../../Components/RoomModel";
 import RoomModelUpdate from "../../Components/RoomModelUpdate";
 import RoomModelDelete from "../../Components/RoomModelDelete";
 import Navbar from "@/Components/Navbar";
+import Toast from "vue-toastification";
+import { useToast } from "vue-toastification";
+import "vue-toastification/dist/index.css";
+import MyToastComponent from '../../Components/MyToastComponent';
+
+
+
 // import NotificationBox from "@/Components/NotificationBox";
 export default {
-    components: {Navbar, RoomModelDelete, RoomModelUpdate, RoomModel},
+    components: {Navbar, RoomModelDelete, RoomModelUpdate, RoomModel, MyToastComponent},
+
     props:{
         error: null,
         rooms: null

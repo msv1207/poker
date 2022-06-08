@@ -9,6 +9,7 @@ use Inertia\Inertia;
 use App\Traits\AddsToast;
 use Illuminate\Http\Request;
 use Usernotnull\Toast\Toast;
+use Illuminate\Support\Facades\Auth;
 
 class RoomController extends Controller
 {
@@ -51,7 +52,7 @@ class RoomController extends Controller
 //        $this->addToast('Updated', 'Delicious champagne has been updated', 'success', false);
         $room->title=$request->title;
         $room->cards=json_encode($request->cards);
-        $room->user_id=1;
+        $room->user_id=Auth::id();
         $room->save();
         return redirect()->back()->with(
           'message' , 'success');

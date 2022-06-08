@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lot;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class LotController extends Controller
 {
@@ -43,7 +44,7 @@ class LotController extends Controller
 //        dd($lot);
         $lot->choose=$request->choose;
         $lot->room_id=$request->room_id;
-        $lot->user_id=1;
+        $lot->user_id=Auth::id();
         $lot->save();
     }
 

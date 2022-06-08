@@ -4,6 +4,8 @@ import { InertiaProgress } from "@inertiajs/progress";
 import Notifications from 'notiwind'
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue';
 import { Ziggy } from "./ziggy";
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
 import 'flowbite';
 
 InertiaProgress.init();
@@ -15,6 +17,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(Toast)
             .use(ZiggyVue, Ziggy)
             .use(Notifications)
             .component("Link", Link)

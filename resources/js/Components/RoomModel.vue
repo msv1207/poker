@@ -141,17 +141,25 @@ import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
 import RoomDropDown from "./RoomDropDown";
 import {createPopper} from "@popperjs/core";
+import axios from "axios";
+import {useToast} from "vue-toastification";
+import MyToastComponent from "@/Components/MyToastComponent";
 export default {
     name: "roomModel",
-    components: {RoomDropDown},
+    components: {RoomDropDown, MyToastComponent},
     setup () {
+        const toast = useToast();
+        toast.success("My toast content", {
+            timeout: 2000
+        });
         const form = reactive({
             title: null,
             cards: [],
-        })
-
+        });
         function submit() {
-            Inertia.post('/room', form)
+            axios.post('/room', form).then(
+                useToast().success('fcfcfcf')
+        )
         }
 
         return { form, submit }
