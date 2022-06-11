@@ -6,6 +6,7 @@ use Hashids;
 use App\Models\Room;
 use App\Models\User;
 use Inertia\Inertia;
+use mysql_xdevapi\Table;
 use App\Traits\AddsToast;
 use Illuminate\Http\Request;
 use Usernotnull\Toast\Toast;
@@ -55,7 +56,7 @@ class RoomController extends Controller
         $room->user_id=Auth::id();
         $room->save();
         return redirect()->back()->with(
-          'message' , 'success');
+          'message' , 'success')->with('messageTitle', 'crated room '. $request->title);
     }
 
     /**
@@ -103,6 +104,8 @@ class RoomController extends Controller
         $room->title=$request->title;
         $room->cards=$request->cards;
         $room->save();
+        return redirect()->back()->with(
+            'message' , 'success')->with('messageTitle', 'updated room '. $request->title);
     }
 
     /**

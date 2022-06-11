@@ -1,25 +1,47 @@
-<template>
+<template  >
     <navbar/>
-
     {{ choose }}
     <div class="px-20 py-10">
 
         <StoryModel :id="room.id"/>
-
         <span class="font-sans text-2xl">{{ room.title }}              </span>
+        <div v-if="story[id]!=undefined">
+
         <span class="flex items-center justify-center font-sans text-2xl">{{ story[id].title }}</span>
+</div>
+        <div v-else>
+            <span class="flex items-center justify-center font-sans text-2xl">create story</span>
+
+        </div>
         <br>
         <!--        <div class="flex space-x-4 float-right">-->
         <div
             class="space-x-4 space-x-reverse px-5 py-5 float-right  w-1/4 relative overflow-x-auto shadow-md sm:rounded-lg">
-            <vote-form @name="getName($event)" :selected="selected" :cards="room.cards"/>
             <br>
-            <div>
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">send
+
+            <div class=" mb-6">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Send
                     invite</label>
                 <input v-model="email" type="email" id="email"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        placeholder="email@email.com" required>
+                <br>
+                <button
+                    class="  text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800"
+                    @click="sendInvite"> sendInvite
+                </button>
+            </div>
+            <vote-form @name="getName($event)" :selected="selected" :cards="room.cards"/>
+<br>
+            <button type="button" @click="finishVote(room.id, story[id].id)"
+                    class=" text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800">
+                finish vote
+            </button>
+            <button
+                class="  text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800"
+                @click="nextStory(room.id, story[id].id)"> vote
+            </button>
+            <div>
 
                 <button :disabled="counting"
                         class="  text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800"
@@ -31,26 +53,6 @@
                     <span v-else>Start vote</span>
                 </button>
             </div>
-            <div class=" mb-6">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">send
-                    invite</label>
-                <input v-model="email" type="email" id="email"
-                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       placeholder="email@email.com" required>
-                <br>
-                <button
-                    class="  text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800"
-                    @click="sendInvite"> sendInvite
-                </button>
-            </div>
-            <button type="button" @click="finishVote(room.id, story[id].id)"
-                    class=" text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800">
-                finish vote
-            </button>
-            <button
-                class="  text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:hover:bg-purple-600 dark:focus:ring-purple-800"
-                @click="nextStory(room.id, story[id].id)"> vote
-            </button>
         </div>
         <!--            </div>-->
         <div class=" w-2/3 p-6 py-5 relative overflow-x-auto shadow-md sm:rounded-lg" v-if="tet!=null">
@@ -82,7 +84,7 @@
                 </th>
             </tr>
             </thead>
-            <tbody v-for="room in story">
+            <tbody v-if="story[id]!=undefined" v-for="room in story">
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-purple-100 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                     {{ room.title }}
@@ -165,6 +167,11 @@ export default {
         },
         startCountdown: function () {
             this.counting = true;
+            // Inertia.reload({ only: ['story'] })
+            Inertia.visit('room/4', {
+                only: ['story'],
+            })
+
         },
         onCountdownEnd: function () {
             this.counting = false;

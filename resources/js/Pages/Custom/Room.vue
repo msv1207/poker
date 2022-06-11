@@ -6,7 +6,7 @@
            <h1 class="font-sans text-2xl"> Latest rooms</h1>
 <br>
         </div>
-        <p>{{$page.props.flash.notification }}</p>
+        <p>{{$page.props.flash }}</p>
 
         <div class="py-5 relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -83,7 +83,8 @@ export default {
     },
     computed: {
         notification() {
-            return this.$page.props.flash.notification;
+            if (this.$page.props.flash.notificationTitle !=null)
+            return this.$page.props.flash;
         },
         icon() {
             return {
@@ -91,6 +92,11 @@ export default {
                 green: 'check-circle',
             }["red"];
                     }
+    },
+    watch:{
+        notification(){
+            useToast().success(this.$page.props.flash.notificationTitle)
+        }
     },
     methods:{
         // redirectUrl(){

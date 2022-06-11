@@ -39,6 +39,7 @@
 import {createPopper} from "@popperjs/core";
 import {reactive} from "vue";
 import {Inertia} from "@inertiajs/inertia";
+import axios from "axios";
 
 export default {
     name: "StoryModel",
@@ -53,14 +54,14 @@ export default {
 
         function submit(id) {
             form.id=id
-            Inertia.post('/room/'+id+'/story', form)
+            axios.post('/room/'+id+'/story', form)
         }
 
         return { form, submit }
     },
     data() {
         return {
-            showModal: false,
+            showModal: true,
         }
     },
     methods: {

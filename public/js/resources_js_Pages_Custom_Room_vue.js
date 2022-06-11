@@ -5445,17 +5445,17 @@ __webpack_require__.r(__webpack_exports__);
     MyToastComponent: _Components_MyToastComponent__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   setup: function setup() {
-    var toast = (0,vue_toastification__WEBPACK_IMPORTED_MODULE_4__.useToast)();
-    toast.success("My toast content", {
-      timeout: 2000
-    });
+    // const toast = useToast();
+    // toast.success("My toast content", {
+    //     timeout: 2000
+    // });
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       title: null,
       cards: []
     });
 
     function submit() {
-      axios__WEBPACK_IMPORTED_MODULE_3___default().post('/room', form).then((0,vue_toastification__WEBPACK_IMPORTED_MODULE_4__.useToast)().success('fcfcfcf'));
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/room', form);
     }
 
     return {
@@ -5609,13 +5609,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     notification: function notification() {
-      return this.$page.props.flash.notification;
+      if (this.$page.props.flash.notificationTitle != null) return this.$page.props.flash;
     },
     icon: function icon() {
       return {
         red: 'exclamation-circle',
         green: 'check-circle'
       }["red"];
+    }
+  },
+  watch: {
+    notification: function notification() {
+      (0,vue_toastification__WEBPACK_IMPORTED_MODULE_6__.useToast)().success(this.$page.props.flash.notificationTitle);
     }
   },
   methods: {// redirectUrl(){
@@ -6606,7 +6611,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_room_model_delete = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("room-model-delete");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_navbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_room_model), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.flash.notification), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_navbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_room_model), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.flash), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_4, [_hoisted_5, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.rooms, function (room) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {

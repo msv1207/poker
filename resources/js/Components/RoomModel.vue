@@ -147,19 +147,18 @@ import MyToastComponent from "@/Components/MyToastComponent";
 export default {
     name: "roomModel",
     components: {RoomDropDown, MyToastComponent},
+
     setup () {
-        const toast = useToast();
-        toast.success("My toast content", {
-            timeout: 2000
-        });
+        // const toast = useToast();
+        // toast.success("My toast content", {
+        //     timeout: 2000
+        // });
         const form = reactive({
             title: null,
             cards: [],
         });
         function submit() {
-            axios.post('/room', form).then(
-                useToast().success('fcfcfcf')
-        )
+            Inertia.post('/room', form)
         }
 
         return { form, submit }

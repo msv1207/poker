@@ -47,6 +47,7 @@ class StoryController extends Controller
         $story->room_id=$room->id;
         $story->user_id=Auth::id();
         $story->save();
+        return $this->index();
 
     }
 
