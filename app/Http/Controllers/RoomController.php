@@ -11,6 +11,7 @@ use App\Traits\AddsToast;
 use Illuminate\Http\Request;
 use Usernotnull\Toast\Toast;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RoomController extends Controller
 {
@@ -23,7 +24,6 @@ class RoomController extends Controller
     public function index()
     {
         $rooms=Room::all();
-
         return Inertia::render('Custom/Room', [
             'rooms' => $rooms,
         ]);
@@ -55,8 +55,11 @@ class RoomController extends Controller
         $room->cards=json_encode($request->cards);
         $room->user_id=Auth::id();
         $room->save();
-        return redirect()->back()->with(
-          'message' , 'success')->with('messageTitle', 'crated room '. $request->title);
+//        Session::flash('message', "success")     ;
+//       return Session::flash('messageTitle', "success")     ;
+
+        $this->addToast('created room', 'created room', 'success');
+        return $this->index();
     }
 
     /**

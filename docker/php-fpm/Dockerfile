@@ -1,4 +1,4 @@
-FROM bitnami/php-fpm:8.0
+FROM devilbox/php-fpm:8.0-prod-0.140
 
 WORKDIR /application
 

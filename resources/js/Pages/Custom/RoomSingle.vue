@@ -1,6 +1,9 @@
 <template  >
     <navbar/>
+<my-toast-component/>
+<!--    {{$page.props}}-->
     {{ choose }}
+    {{$page.props.flash.toast}}
     <div class="px-20 py-10">
 
         <StoryModel :id="room.id"/>
@@ -111,6 +114,7 @@ import NotificationBox from "@/Components/NotificationBox";
 import Result from "@/Components/Result";
 import VueCountdown from "@chenfengyuan/vue-countdown";
 import StoryDelete from "@/Components/StoryDelete";
+import MyToastComponent from "@/Components/MyToastComponent";
 
 export default {
     name: "RoomSingle",
@@ -128,7 +132,7 @@ export default {
             counting: false,
         }
     },
-    components: {StoryDelete, Result, VoteForm, StoryModel, LotModel, Navbar, RoomCards, VueCountdown},
+    components: {MyToastComponent, StoryDelete, Result, VoteForm, StoryModel, LotModel, Navbar, RoomCards, VueCountdown},
     methods: {
         nextStory(room, story) {
             // alert(room)
@@ -165,12 +169,11 @@ export default {
 
 
         },
-        startCountdown: function () {
+        onCountdown()  {
+            // alert("cefce")
             this.counting = true;
             // Inertia.reload({ only: ['story'] })
-            Inertia.visit('room/4', {
-                only: ['story'],
-            })
+            // Inertia.reload()
 
         },
         onCountdownEnd: function () {
@@ -179,6 +182,12 @@ export default {
 
         getName(name) {
             alert(name);
+        },
+        updateStory(){
+
+            Inertia.get('/room/1', {}, {preserveState: true,})
+
+
         }
 
     }

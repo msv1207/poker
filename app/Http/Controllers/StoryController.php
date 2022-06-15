@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use Inertia\Inertia;
 use App\Models\Story;
+use App\Traits\AddsToast;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class StoryController extends Controller
 {
+
+    use AddsToast;
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +22,7 @@ class StoryController extends Controller
     public function index()
     {
         $stories=Story::all();
+//        $this->addToast('message', 'success', 'success');
 
         return response($stories);
     }
@@ -47,7 +52,15 @@ class StoryController extends Controller
         $story->room_id=$room->id;
         $story->user_id=Auth::id();
         $story->save();
-        return $this->index();
+//        dd(Auth::user());
+//        return Session::flash(;)
+//        \session()->remember('message' , function (){return 'success';});
+//        \session()->remember('messageTitle' , function (){return 'crated';});
+        $this->addToast('created story', 'created story', 'success');
+         $test = new RoomController();
+         return $test->index();
+//        return redirect()->back()->with(
+//        'message' , 'success')->with('messageTitle', 'crated room '. $request->title);
 
     }
 

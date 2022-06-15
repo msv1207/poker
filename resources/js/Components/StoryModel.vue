@@ -53,8 +53,9 @@ export default {
         })
 
         function submit(id) {
-            form.id=id
+            // form.id=id
             axios.post('/room/'+id+'/story', form)
+            Inertia.get('/room/' +id, {}, {preserveState: true,})
         }
 
         return { form, submit }

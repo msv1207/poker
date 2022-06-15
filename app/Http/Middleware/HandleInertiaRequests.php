@@ -41,9 +41,7 @@ class HandleInertiaRequests extends Middleware
                 ? $request->user()->only('id', 'name', 'email')
                 : null,
             'flash' => [
-                'notification' => session('message'),
-                'notificationTitle' => session('messageTitle')
-
+                'toast' => session('toast')
 
             ],
     ]);

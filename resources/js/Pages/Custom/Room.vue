@@ -1,5 +1,6 @@
 <template>
     <navbar/>
+    <MyToastComponent/>
     <div class="px-20 py-10">
         <room-model />
         <div  >
@@ -66,9 +67,9 @@ import RoomModel from "../../Components/RoomModel";
 import RoomModelUpdate from "../../Components/RoomModelUpdate";
 import RoomModelDelete from "../../Components/RoomModelDelete";
 import Navbar from "@/Components/Navbar";
-import Toast from "vue-toastification";
-import { useToast } from "vue-toastification";
-import "vue-toastification/dist/index.css";
+// import Toast from "vue-toastification";
+// import { useToast } from "vue-toastification";
+// import "vue-toastification/dist/index.css";
 import MyToastComponent from '../../Components/MyToastComponent';
 
 
@@ -78,26 +79,26 @@ export default {
     components: {Navbar, RoomModelDelete, RoomModelUpdate, RoomModel, MyToastComponent},
 
     props:{
-        error: null,
+    //     error: null,
         rooms: null
     },
-    computed: {
-        notification() {
-            if (this.$page.props.flash.notificationTitle !=null)
-            return this.$page.props.flash;
-        },
-        icon() {
-            return {
-                red: 'exclamation-circle',
-                green: 'check-circle',
-            }["red"];
-                    }
-    },
-    watch:{
-        notification(){
-            useToast().success(this.$page.props.flash.notificationTitle)
-        }
-    },
+    // computed: {
+    //     notification() {
+    //         if (this.$page.props.flash.notificationTitle !=null)
+    //         return this.$page.props.flash;
+    //     },
+    //     icon() {
+    //         return {
+    //             red: 'exclamation-circle',
+    //             green: 'check-circle',
+    //         }["red"];
+    //                 }
+    // },
+    // watch:{
+    //     notification(){
+    //         useToast().success(this.$page.props.flash.notificationTitle)
+    //     }
+    // },
     methods:{
         // redirectUrl(){
         //     this.router.push('/home')

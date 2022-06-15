@@ -1,12 +1,37 @@
 <template>
-    <div class="t-container">
-        <span>Toasts {{ counter }} from toasts!</span>
-        <button class="action" @click.stop="clicked">Open!</button>
-    </div>
+<!--    <div class="t-container">-->
+<!--        <span>Toasts {{ counter }} from toasts!</span>-->
+<!--        <button class="action" @click.stop="clicked">Open!</button>-->
+<!--    </div>-->
 </template>
 <script>
+import Toast from "vue-toastification";
+import { useToast } from "vue-toastification";
+import "vue-toastification/dist/index.css";
+
 export default {
-    props: ["counter"],
+    props:  {
+        error: null,
+        rooms: null
+    },
+    // props: ["counter"],
+    computed: {
+        notification() {
+            if (this.$page.props.flash.toast !=null)
+                return this.$page.props.flash;
+        },
+        icon() {
+            return {
+                red: 'exclamation-circle',
+                green: 'check-circle',
+            }["red"];
+        }
+    },
+    watch:{
+        notification(){
+            useToast().success(this.$page.props.flash.toast.message)
+        }
+    },
     methods: {
         clicked() {
             // Emit a "click" event when clicked.
